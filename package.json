@@ -1,0 +1,17 @@
+{
+  "name": "microsite",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"src/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
+    "test": "jest",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "jest": "^30.0.0",
+    "prettier": "^3.0.0"
+  }
+}
