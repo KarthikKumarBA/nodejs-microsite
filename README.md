@@ -1,4 +1,4 @@
- # GitHub Actions Microsite
+# GitHub Actions Microsite
 
 Simple Node.js microsite demonstrating CI/CD using GitHub Actions and GitHub Pages.
 
