@@ -4,14 +4,20 @@
   "private": true,
   "scripts": {
     "lint": "eslint src/**/*.js",
-    "format": "prettier --write \"src/**/*.{html,css,js}\"",
-    "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
+    "format": "prettier --write \"src/**/*.{html,css,js}\" \"tests/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.{html,css,js}\" \"tests/**/*.js\"",
     "test": "jest",
+    "test:unit": "jest tests/app.test.js",
+    "test:component": "jest tests/component.test.js",
+    "test:accessibility": "jest tests/accessibility.test.js",
+    "test:smoke": "jest tests/smoke.test.js",
     "build": "node build.js"
   },
   "devDependencies": {
     "eslint": "^9.0.0",
     "jest": "^30.0.0",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^26.0.0",
     "prettier": "^3.0.0"
   }
 }

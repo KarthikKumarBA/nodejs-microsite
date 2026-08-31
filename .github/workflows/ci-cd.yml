@@ -11,8 +11,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
   build-test:
@@ -38,14 +36,20 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
-      - name: Run tests
-        run: npm test
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Component checks
+        run: npm run test:component
 
       - name: Build
         run: npm run build
 
-      - name: Verify build
-        run: test -f dist/index.html
+      - name: Accessibility checks
+        run: npm run test:accessibility
+
+      - name: Smoke tests
+        run: npm run test:smoke
 
       - name: Upload Pages artifact
         if: github.event_name == 'push'
@@ -58,6 +62,10 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build-test
     runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
 
     environment:
       name: github-pages
